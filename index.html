@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Premium Malen-nach-Zahlen-Sets aus München. Made in Germany, kuratiert mit echten Künstler:innen. Jetzt mit Pfingst-Special: 30% Rabatt + Keilrahmen geschenkt." />
+  <title>Habitus Art — Mal etwas. Denk an nichts.</title>
+
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" />
+
+  <style>
+    /* =========================================
+       HABITUS ART — LANDING PAGE
+       Brand-Fonts: Helvetica (wie habitus-art.com)
+       Layout-Referenz: sculpd.co.uk
+       Aktion: Pfingst-Special 2026
+       ========================================= */
+
+    /* ----- Design Tokens — Habitus Brand ----- */
+    :root {
+      /* Backgrounds */
+      --bg-cream: #FAF4EC;
+      --bg-cream-deep: #F2EADC;
+      --bg-white: #FFFFFF;
+      --bg-coral-soft: #FCE7DF;
+      --bg-coral-tinted: #F7D2C2;
+      --bg-section-warm: #F5EBDD;
+
+      /* Text — Habitus Deep Brown */
+      --text-primary: #3C231E;
+      --text-secondary: #6B5048;
+      --text-tertiary: #998073;
+      --text-accent: #FF5C3D;
+
+      /* Borders */
+      --border-soft: #EADFCE;
+      --border-medium: #D8C9B3;
+
+      /* Accent — Habitus Orange/Coral */
+      --accent: #FF5C3D;
+      --accent-deep: #C8453D;
+      --accent-soft: #FFB39E;
+      --success: #6B9434;
+
+      /* Typography — Habitus Brand: Helvetica System Stack */
+      --font-sans: 'Helvetica Neue', Helvetica, Arial, -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Spacing */
+      --section-pad-y: 6rem;
+      --section-pad-y-tight: 4rem;
+      --container-max: 1240px;
+
+      /* Radii — Sculpd-style rounded */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-pill: 999px;
+    }
+
+    /* ----- Reset & Base ----- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg-cream);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      letter-spacing: 0.005em;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ----- Typography — Habitus: all Helvetica, hierarchy via weight + size ----- */
+    h1, h2, h3, h4 {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      margin: 0;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.75rem);
+      line-height: 1.02;
+      font-weight: 400;
+    }
+    h2 {
+      font-size: clamp(1.875rem, 4vw, 2.875rem);
+      line-height: 1.08;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+    }
+    h3 {
+      font-size: 1.0625rem;
+      line-height: 1.3;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+    }
+    p { margin: 0; }
+    .lead {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      letter-spacing: 0.005em;
+    }
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .mini { font-size: 0.8125rem; color: var(--text-tertiary); }
+
+    /* ----- Buttons — Pill (Sculpd style) ----- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 1.0625rem 2.125rem;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      border: none;
+      transition: transform 0.18s ease, background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+      letter-spacing: 0.015em;
+    }
+    .btn-primary {
+      background: var(--text-primary);
+      color: var(--bg-cream);
+    }
+    .btn-primary:hover {
+      background: #1f120e;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px -10px rgba(60,35,30,0.4);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-accent {
+      background: var(--accent);
+      color: #FFF;
+    }
+    .btn-accent:hover {
+      background: var(--accent-deep);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px -10px rgba(255,92,61,0.5);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--text-primary);
+      padding: 0.625rem 1.375rem;
+      font-size: 0.8125rem;
+    }
+    .btn-secondary:hover { background: var(--text-primary); color: var(--bg-cream); }
+    .btn .ti { font-size: 1.125rem; }
+
+    /* ----- Reusable: Pill / Tag / Card ----- */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.125rem;
+      background: var(--bg-white);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-pill);
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .tag {
+      display: inline-block;
+      padding: 0.3125rem 0.75rem;
+      background: var(--accent);
+      color: #FFF;
+      border-radius: var(--radius-pill);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .tag-soft {
+      background: var(--bg-coral-soft);
+      color: var(--accent-deep);
+    }
+    .card {
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 16px 38px -20px rgba(60,35,30,0.18); }
+
+    /* ----- Image utility ----- */
+    .img-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-coral-tinted);
+    }
+    .img-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ----- Sections ----- */
+    section { padding: var(--section-pad-y) 0; }
+    .section-tight { padding: var(--section-pad-y-tight) 0; }
+    .section-cream { background: var(--bg-cream-deep); }
+    .section-warm { background: var(--bg-section-warm); }
+    .section-coral { background: var(--bg-coral-soft); }
+
+    /* ----- ANNOUNCEMENT BAR ----- */
+    .announce {
+      background: var(--text-primary);
+      color: var(--bg-cream);
+      text-align: center;
+      padding: 0.6875rem 1rem;
+      font-size: 0.8125rem;
+      letter-spacing: 0.015em;
+    }
+    .announce a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+
+    /* ----- NAV ----- */
+    .nav {
+      padding: 1.125rem 0;
+      border-bottom: 1px solid var(--border-soft);
+      background: var(--bg-cream);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: color 0.2s ease;
+      letter-spacing: 0.005em;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-icons { display: flex; gap: 1.125rem; align-items: center; }
+    .nav-icons .ti { font-size: 1.3125rem; color: var(--text-primary); cursor: pointer; transition: color 0.2s ease; }
+    .nav-icons .ti:hover { color: var(--accent); }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* ============ 1. HERO — Sculpd-Style: Bild zuerst ============ */
+    .hero {
+      padding: 2rem 0 5rem;
+      text-align: center;
+    }
+    .hero-image {
+      margin: 0 auto 2.75rem;
+      max-width: 1100px;
+      aspect-ratio: 16/9;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: var(--bg-coral-tinted);
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+    .hero h1 { max-width: 880px; margin: 1.5rem auto 1.75rem; }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 400;
+    }
+    .hero .lead { max-width: 620px; margin: 0 auto 2.5rem; }
+
+    /* ============ 2. USP-BAR ============ */
+    .usp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3.5rem;
+    }
+    .usp-card {
+      text-align: center;
+      padding: 2.25rem 1.5rem;
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+    }
+    .usp-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--bg-coral-soft);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .usp-card h3 { margin-bottom: 0.75rem; font-size: 1.0625rem; font-weight: 500; }
+    .usp-card p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.55; }
+
+    /* ============ 3. REVIEWS ============ */
+    .stars-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3125rem;
+      margin: 1rem 0 3rem;
+      color: #E89A2C;
+    }
+    .stars-row .ti { font-size: 1.125rem; }
+    .stars-row span { color: var(--text-secondary); font-size: 0.875rem; margin-left: 0.625rem; }
+
+    /* Swipeable horizontal carousel */
+    .swipe-row {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 0.25rem 1.5rem 1.5rem;
+      margin: 0 -1.5rem;
+      scroll-padding: 1.5rem;
+    }
+    .swipe-row::-webkit-scrollbar { display: none; }
+    .swipe-row > * {
+      flex: 0 0 min(320px, 82vw);
+      scroll-snap-align: start;
+    }
+    /* Carousel arrow navigation */
+    .swipe-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .swipe-arrow {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-white);
+      border: 1px solid var(--border-medium);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.18s ease;
+    }
+    .swipe-arrow:hover {
+      background: var(--text-primary);
+      color: var(--bg-cream);
+      border-color: var(--text-primary);
+    }
+    .swipe-arrow:active { transform: scale(0.96); }
+    .swipe-arrow .ti { font-size: 1.125rem; }
+    .swipe-arrow[disabled] {
+      opacity: 0.35;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .review-card { padding: 0; height: 100%; display: flex; flex-direction: column; }
+    .review-card .img-frame { aspect-ratio: 4/3; border-radius: 0; }
+    .review-card .review-body { padding: 1.5rem 1.5rem 1.75rem; flex: 1; }
+    .review-stars {
+      display: flex;
+      gap: 0.1875rem;
+      color: #E89A2C;
+      margin-bottom: 0.75rem;
+    }
+    .review-stars .ti { font-size: 0.9375rem; }
+    .review-quote {
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 400;
+      margin-bottom: 0.875rem;
+      color: var(--text-primary);
+    }
+    .review-attribution {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ============ 4. USE CASES ============ */
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 3.5rem 0 2.5rem;
+    }
+    .usecase-card { padding: 0; }
+    .usecase-card .img-frame {
+      aspect-ratio: 4/3;
+      border-radius: 0;
+    }
+    .usecase-card .usecase-body { padding: 1.5rem 1.75rem 2rem; }
+    .usecase-card h3 {
+      font-size: 1.375rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .usecase-card p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* ============ 5. KIT-AUSWAHL ============ */
+    .kit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+    .kit-card {
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: block;
+    }
+    .kit-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px -24px rgba(60,35,30,0.22); }
+    .kit-card .img-frame {
+      aspect-ratio: 1/1;
+      border-radius: 0;
+    }
+    .kit-body { padding: 1.375rem 1.5rem 1.625rem; }
+    .kit-title-row { display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.4375rem; flex-wrap: wrap; }
+    .kit-title-row h3 { margin: 0; font-size: 1.0625rem; font-weight: 500; }
+    .kit-meta {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.125rem;
+      line-height: 1.45;
+    }
+    .kit-price-row { display: flex; align-items: center; justify-content: space-between; }
+    .kit-price {
+      font-size: 1.0625rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .all-motifs-link {
+      display: block;
+      text-align: center;
+      margin-top: 2.75rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      color: var(--text-primary);
+    }
+    .all-motifs-link:hover { color: var(--accent); }
+
+    /* ============ 6. UNIQUE MECHANISM ============ */
+    .mechanism {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .mechanism { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    .mechanism h2 { margin-bottom: 1.25rem; }
+    .mechanism .lead { margin-bottom: 2rem; }
+    .check-list { list-style: none; padding: 0; margin: 0; }
+    .check-list li {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      padding: 0.6875rem 0;
+      font-size: 0.9375rem;
+      border-bottom: 1px solid rgba(60,35,30,0.08);
+    }
+    .check-list li:last-child { border-bottom: none; }
+    .check-list .ti {
+      color: var(--accent);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 0.0625rem;
+    }
+    .mechanism-image {
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: var(--bg-coral-tinted);
+    }
+    .mechanism-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ============ 7. KÜNSTLER — Swipeable Row ============ */
+    .artists-section { text-align: center; }
+    .artists-section h2 { margin: 0.75rem 0 1.25rem; }
+    .artists-swipe {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 2.5rem 1.5rem 2rem;
+      margin: 1.5rem -1.5rem 0;
+      scroll-padding: 1.5rem;
+      justify-content: flex-start;
+    }
+    .artists-swipe::-webkit-scrollbar { display: none; }
+    .artist {
+      flex: 0 0 110px;
+      scroll-snap-align: center;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .artist:hover { transform: translateY(-3px); }
+    .artist-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      margin: 0 auto 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 1.5rem;
+      font-weight: 400;
+      overflow: hidden;
+    }
+    .artist-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .artist:nth-child(1) .artist-avatar { background: #EBE1CC; }
+    .artist:nth-child(2) .artist-avatar { background: var(--bg-coral-tinted); }
+    .artist:nth-child(3) .artist-avatar { background: #E8DDD0; }
+    .artist:nth-child(4) .artist-avatar { background: #F5C4B3; }
+    .artist:nth-child(5) .artist-avatar { background: #EFD7CB; }
+    .artist:nth-child(6) .artist-avatar { background: #ECE3D2; }
+    .artist:nth-child(7) .artist-avatar { background: #E5D4C0; }
+    .artist-name { font-size: 0.8125rem; font-weight: 500; color: var(--text-primary); }
+    @media (min-width: 900px) {
+      .artists-swipe { justify-content: center; }
+    }
+
+    /* ============ 8. HOW IT WORKS ============ */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+    }
+    .step { text-align: center; }
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #FFF;
+      font-size: 1.25rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.375rem;
+    }
+    .step h3 { margin-bottom: 0.625rem; font-weight: 500; }
+    .step p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.55; }
+
+    /* ============ 9. PRESS ============ */
+    .press-section {
+      padding: 3rem 0;
+      text-align: center;
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .press-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      color: var(--text-tertiary);
+      margin-bottom: 1.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .press-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .press-logos img {
+      height: 32px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+      opacity: 0.65;
+      filter: grayscale(100%);
+      transition: opacity 0.2s ease;
+    }
+    .press-logos img:hover { opacity: 0.95; }
+    @media (max-width: 540px) {
+      .press-logos { gap: 2rem; }
+      .press-logos img { height: 26px; max-width: 130px; }
+    }
+
+    /* ============ 10. CLOSING + OFFER ============ */
+    .closing-section { text-align: center; }
+    .closing-section h2 { max-width: 720px; margin: 0 auto 1.25rem; }
+    .closing-section .lead { max-width: 560px; margin: 0 auto 4rem; }
+
+    .buybox {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--bg-white);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem;
+      box-shadow: 0 30px 70px -30px rgba(255,92,61,0.28), 0 0 0 6px rgba(255,92,61,0.06);
+    }
+    .buybox-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1.75rem;
+      align-items: start;
+      text-align: left;
+    }
+    @media (max-width: 540px) {
+      .buybox { padding: 1.75rem; }
+      .buybox-grid { grid-template-columns: 1fr; gap: 1.25rem; text-align: center; }
+      .buybox-image { max-width: 180px; margin: 0 auto; }
+    }
+    .buybox-image {
+      aspect-ratio: 1/1.05;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .buybox-image img { width: 100%; height: 100%; object-fit: cover; }
+    .buybox h3 {
+      font-size: 1.4375rem;
+      line-height: 1.2;
+      font-weight: 400;
+      margin: 0.6875rem 0 0.875rem;
+      letter-spacing: -0.02em;
+    }
+    .buybox-desc { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.375rem; line-height: 1.5; }
+    .buybox .btn-accent { width: 100%; justify-content: center; }
+    .buybox-timer-row {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      text-align: center;
+    }
+    @media (max-width: 540px) {
+      .buybox-timer-row { text-align: center; }
+    }
+    .timer {
+      font-family: 'SF Mono', Menlo, Consolas, monospace;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.9375rem;
+    }
+    .buybox-divider {
+      height: 1px;
+      background: var(--border-soft);
+      margin: 1.5rem 0 1.25rem;
+      border: 0;
+    }
+    .stock-row {
+      text-align: center;
+      font-size: 0.875rem;
+    }
+    .live-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--success);
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      box-shadow: 0 0 0 4px rgba(107,148,52,0.15);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(107,148,52,0.15); }
+      50% { box-shadow: 0 0 0 8px rgba(107,148,52,0.06); }
+    }
+    .reassurance {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.8125rem;
+      color: var(--text-tertiary);
+      letter-spacing: 0.02em;
+    }
+    .reassurance span { margin: 0 0.5rem; }
+
+    /* ============ FOOTER — Minimal (Funnel-only) ============ */
+    footer.footer-minimal {
+      background: var(--text-primary);
+      color: var(--bg-cream);
+      padding: 3.5rem 0 1.75rem;
+      margin-top: 0;
+    }
+    .footer-brand { margin-bottom: 2.5rem; }
+    .footer-brand .footer-logo {
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    .footer-brand .footer-logo img {
+      height: 32px;
+      width: auto;
+    }
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: rgba(250,244,236,0.7);
+      max-width: 360px;
+      line-height: 1.6;
+    }
+    .footer-bottom {
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(250,244,236,0.12);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.75rem;
+      color: rgba(250,244,236,0.55);
+    }
+
+    /* ============ Animations: Staggered Fade-in ============ */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero > .container > * {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeUp 0.7s ease-out forwards;
+      }
+      .hero-image { animation-delay: 0.05s; }
+      .hero .pill { animation-delay: 0.18s; }
+      .hero h1 { animation-delay: 0.3s; }
+      .hero .lead { animation-delay: 0.42s; }
+      .hero .btn { animation-delay: 0.54s; }
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================
+       ANNOUNCEMENT BAR
+       ========================================= -->
+  <div class="announce">
+    Pfingst-Special: 30% Rabatt + Keilrahmen (30€) geschenkt. <a href="#offer">Jetzt sichern →</a>
+  </div>
+
+  <!-- =========================================
+       NAV
+       ========================================= -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" aria-label="Habitus Art Startseite">
+        <img src="230913_habitus_logo_marron.png" alt="Habitus Art" class="logo-img" />
+      </a>
+      <div class="nav-links">
+        <a href="#kuenstler">Künstler:innen</a>
+        <a href="#mechanism">Qualität</a>
+        <a href="#how">So funktioniert's</a>
+        <a href="#offer">Pfingst-Special</a>
+      </div>
+      <div class="nav-icons">
+        <i class="ti ti-search" aria-label="Suche"></i>
+        <i class="ti ti-user" aria-label="Konto"></i>
+        <i class="ti ti-shopping-bag" aria-label="Warenkorb"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================================
+       1. HERO
+       ========================================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-image">
+        <img src="hero-startbild.webp" alt="Zwei Freundinnen malen gemeinsam ein Habitus-Art-Motiv im Garten" />
+      </div>
+
+      <span class="pill">
+        <i class="ti ti-heart" aria-hidden="true" style="color: var(--accent);"></i>
+        Geliebt von 21.000+ Hobbymaler:innen
+      </span>
+      <h1>Mal etwas. <em>Denk an nichts.</em></h1>
+      <p class="lead">
+        Wenn dein Kopf abends nicht abschalten kann, können es deine Hände. Gemacht für alle, die müde sind, aber innerlich nicht zur Ruhe kommen. Pack das Set aus. Setz dich hin. Und spüre wie du dich mit jedem Pinselstrich entspannst.
+      </p>
+      <a class="btn btn-primary" href="#offer">
+        Finde dein Set <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- =========================================
+       2. USP-BAR
+       ========================================= -->
+  <section class="section-tight section-cream">
+    <div class="container">
+      <h2 style="text-align: center;">Warum es funktioniert</h2>
+      <p class="lead" style="text-align: center; max-width: 600px; margin: 1rem auto 0;">
+        Wenn das Nervensystem überlastet ist, hilft es, etwas mit den Händen zu tun. Genau dafür ist Malen nach Zahlen.
+      </p>
+      <div class="usp-grid">
+        <div class="usp-card">
+          <div class="usp-icon"><i class="ti ti-package" aria-hidden="true"></i></div>
+          <h3>Sofort loslegen. Ohne Stress.</h3>
+          <p>Alles kommt in einem fertigen Set. Einfach auspacken, losmalen und abschalten.</p>
+        </div>
+        <div class="usp-card">
+          <div class="usp-icon"><i class="ti ti-numbers" aria-hidden="true"></i></div>
+          <h3>Perfekt für Anfänger*innen.</h3>
+          <p>Jedes Feld hat eine Nummer. Du trägst nur die Farbe auf. Und fährst runter mit jedem Pinselstrich.</p>
+        </div>
+        <div class="usp-card">
+          <div class="usp-icon"><i class="ti ti-frame" aria-hidden="true"></i></div>
+          <h3>Kunst zum Aufhängen.</h3>
+          <p>Du hältst etwas in den Händen, was du selbst erschaffen hast. Mit Motiven von echten Künstler:innen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       3. REVIEWS
+       ========================================= -->
+  <section class="section-tight">
+    <div class="container">
+      <h2 style="text-align: center;">Was unsere Kund*innen berichten</h2>
+      <div class="stars-row">
+        <i class="ti ti-star-filled" aria-hidden="true"></i>
+        <i class="ti ti-star-filled" aria-hidden="true"></i>
+        <i class="ti ti-star-filled" aria-hidden="true"></i>
+        <i class="ti ti-star-filled" aria-hidden="true"></i>
+        <i class="ti ti-star-filled" aria-hidden="true"></i>
+        <span>4,9 von 5 — 3.200+ Bewertungen</span>
+      </div>
+
+      <div class="swipe-row" id="reviews-row">
+        <div class="card review-card">
+          <div class="img-frame">
+            <img src="rezension1.jpg" alt="Fertiges Habitus-Motiv einer Kundin neben Pinseln und Lampe" />
+          </div>
+          <div class="review-body">
+            <div class="review-stars" aria-label="5 von 5 Sternen">
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+            </div>
+            <p class="review-quote">„Ich bin eigentlich überhaupt nicht kreativ. Aber nach dem ersten Abend war ich komplett im Flow."</p>
+            <p class="review-attribution">Lisa K.</p>
+          </div>
+        </div>
+        <div class="card review-card">
+          <div class="img-frame">
+            <img src="rezension2.jpg" alt="Zwei Frauen malen gemeinsam am Perspektivenwechsel-Motiv" />
+          </div>
+          <div class="review-body">
+            <div class="review-stars" aria-label="5 von 5 Sternen">
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+            </div>
+            <p class="review-quote">„Hängt jetzt im Wohnzimmer und alle fragen, wo ich es gekauft habe."</p>
+            <p class="review-attribution">Marie B.</p>
+          </div>
+        </div>
+        <div class="card review-card">
+          <div class="img-frame">
+            <img src="rezension3.jpg" alt="Grünes Landschafts-Motiv mit Farbtöpfchen und Pinseln auf dem Tisch" />
+          </div>
+          <div class="review-body">
+            <div class="review-stars" aria-label="5 von 5 Sternen">
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+            </div>
+            <p class="review-quote">„Ich hatte Yoga, Meditation, Journaling probiert. Nichts hat meinen Kopf so leer bekommen wie das hier."</p>
+            <p class="review-attribution">Anna S.</p>
+          </div>
+        </div>
+        <div class="card review-card">
+          <div class="img-frame">
+            <img src="rezension4.png" alt="Habitus-Motiv mit rosa Hintergrund — Sport-/Tennis-Szene, in Arbeit" />
+          </div>
+          <div class="review-body">
+            <div class="review-stars" aria-label="5 von 5 Sternen">
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+            </div>
+            <p class="review-quote">„Die Farben sind so deckend, das hatte ich vorher noch nie gesehen. Da merkt man den Qualitätsunterschied sofort."</p>
+            <p class="review-attribution">Sophia L.</p>
+          </div>
+        </div>
+      </div>
+      <div class="swipe-nav" data-target="reviews-row">
+        <button class="swipe-arrow" data-dir="prev" aria-label="Vorherige Bewertung"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+        <button class="swipe-arrow" data-dir="next" aria-label="Nächste Bewertung"><i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       4. USE CASES
+       ========================================= -->
+  <section class="section-warm">
+    <div class="container">
+      <h2 style="text-align: center;">Gestalte deinen Abend,<br/>wie du ihn magst.</h2>
+      <p class="lead" style="text-align: center; max-width: 620px; margin: 1rem auto 0;">
+        Egal ob du kreativ werden, etwas Neues ausprobieren oder einfach runterfahren willst.
+      </p>
+      <div class="usecase-grid">
+        <div class="card usecase-card">
+          <div class="img-frame">
+            <img src="feierabend-ritual.png" alt="Halbfertiges Habitus-Motiv auf dem Tisch — Pinsel, Farben und ein Feierabend in Ruhe" />
+          </div>
+          <div class="usecase-body">
+            <h3>Dein neues Feierabend-Ritual</h3>
+            <p>Ein anstrengender Arbeitstag, der Kopf qualmt — und du legst endlich das Handy beiseite. Pinsel in die Hand und Erholung für dein Nervensystem.</p>
+          </div>
+        </div>
+        <div class="card usecase-card">
+          <div class="img-frame">
+            <img src="me-time.png" alt="Detail eines Sardinen-Motivs — Pinsel in Hand, ruhiger Sonntag" />
+          </div>
+          <div class="usecase-body">
+            <h3>Me-Time am Sonntag</h3>
+            <p>Keine Pläne, kein Zeitstress. Einfach nur ein Abend für dich. Mit jedem Pinselstrich lässt du das Wochenende ausklingen.</p>
+          </div>
+        </div>
+        <div class="card usecase-card">
+          <div class="img-frame">
+            <img src="gemeinsame-zeit.png" alt="Vier Freundinnen malen gemeinsam bei Kerzenlicht an einem Tisch" />
+          </div>
+          <div class="usecase-body">
+            <h3>Gemeinsame Zeit mit den Liebsten</h3>
+            <p>Statt Bar, statt Restaurant. Jede malt ihr eigenes Motiv — und ihr habt euch zum ersten Mal seit langem wirklich unterhalten.</p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a class="btn btn-primary" href="#offer">
+          Finde dein Motiv <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       6. UNIQUE MECHANISM
+       ========================================= -->
+  <section id="mechanism" class="section-coral">
+    <div class="container">
+      <div class="mechanism">
+        <div>
+          <h2>Made in Germany.<br/>Mit Qualitätsversprechen.</h2>
+          <p class="lead">
+            Wir wollten keine günstigen China-Sets. Keine wässrigen Farben. Keine zerknitterten Leinwände. Deshalb machen wir es anders: Mit Qualität wie aus dem Künstlerbedarf, für Anfänger entwickelt, mit Motiven von echten Künstlern.
+          </p>
+          <ul class="check-list">
+            <li><i class="ti ti-check" aria-hidden="true"></i><span>Höchste Pigmentdichte — deckend beim ersten Pinselstrich</span></li>
+            <li><i class="ti ti-check" aria-hidden="true"></i><span>Wasserbasierte Acrylfarben — fertig gemischt</span></li>
+            <li><i class="ti ti-check" aria-hidden="true"></i><span>Hochwertige Leinwand — garantiert ohne Knicke</span></li>
+            <li><i class="ti ti-check" aria-hidden="true"></i><span>Eigene Künstler-Motive — keine generischen Vorlagen</span></li>
+          </ul>
+          <p class="mini" style="margin-top: 1.75rem;">Produktion in Berlin · Versand in 3–5 Werktagen</p>
+        </div>
+        <div class="mechanism-image">
+          <img src="made-in-germany.jpg" alt="Detail: Pinsel trägt deckendes Pigment auf eine Habitus-Leinwand auf, daneben fertig gemischte Farbtöpfchen" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       7. KÜNSTLER
+       ========================================= -->
+  <section id="kuenstler" class="artists-section">
+    <div class="container">
+      <span class="eyebrow"><i class="ti ti-palette" aria-hidden="true"></i>Echte Künstler*innen</span>
+      <h2>Keine KI. Keine Stockmotive.</h2>
+      <p class="lead" style="max-width: 640px; margin: 1rem auto 0;">
+        All unsere Motive stammen von Künstler*innen, mit denen wir persönlich zusammenarbeiten. Damit hältst du am Ende dein eigenes Künstlermotiv in der Hand.
+      </p>
+
+      <div class="artists-swipe">
+        <div class="artist">
+          <div class="artist-avatar"><img src="Pauline.webp" alt="Künstlerin Pauline Prasser im Atelier" /></div>
+          <p class="artist-name">Pauline Prasser</p>
+        </div>
+        <div class="artist">
+          <div class="artist-avatar"><img src="Alina.webp" alt="Künstlerin Alina Ianchenko mit eigenem Werk" /></div>
+          <p class="artist-name">Alina Ianchenko</p>
+        </div>
+        <div class="artist">
+          <div class="artist-avatar"><img src="Steffi.webp" alt="Künstlerin Steffi Bauer am Zeichentisch" /></div>
+          <p class="artist-name">Steffi Bauer</p>
+        </div>
+        <div class="artist">
+          <div class="artist-avatar"><img src="Rahel.webp" alt="Künstlerin Rahel beim Malen" /></div>
+          <p class="artist-name">Rahel</p>
+        </div>
+        <div class="artist">
+          <div class="artist-avatar"><img src="Antonia.webp" alt="Künstlerin Antonia beim Malen draußen" /></div>
+          <p class="artist-name">Antonia</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <a class="btn btn-primary" href="#offer">
+          Jetzt Set sichern <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       8. HOW IT WORKS
+       ========================================= -->
+  <section id="how" class="section-cream">
+    <div class="container">
+      <h2 style="text-align: center;">So funktioniert's</h2>
+      <p class="lead" style="text-align: center; max-width: 540px; margin: 1rem auto 0;">
+        Vom Klick bis zum fertigen Kunstwerk.
+      </p>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Such dein Motiv aus</h3>
+          <p>Über 40 Motive von echten Künstler:innen. Stillleben, Botanik, Berühmte Künstler, Abstrakt.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Pack die Box aus</h3>
+          <p>Leinwand auf den Tisch, Farben öffnen, Pinsel raus. Du startest in unter 2 Minuten.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Mal — und lass los</h3>
+          <p>Eine Stunde, ein Wochenende, ein Monat. Pausiere, wann du willst. Am Ende: ein fertiges Bild zum Aufhängen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       9. PRESS
+       ========================================= -->
+  <section class="press-section">
+    <div class="container">
+      <p class="press-label">Bekannt aus</p>
+      <div class="press-logos">
+        <img src="logo-ad.avif" alt="Architectural Digest" />
+        <img src="logo-sueddeutsche.avif" alt="Süddeutsche Zeitung" />
+        <img src="logo-mitvergnuegen.avif" alt="Mit Vergnügen" />
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       10. CLOSING + PFINGST-OFFER
+       ========================================= -->
+  <section id="offer" class="closing-section">
+    <div class="container">
+      <h2>Ein ruhigerer Abend beginnt hier.</h2>
+      <p class="lead">
+        Such dir dein Motiv aus, mach den Abend frei, und gib deinem Kopf endlich die Pause, auf die er gewartet hat.
+      </p>
+
+      <!-- OFFER BUYBOX -->
+      <div class="buybox">
+        <div class="buybox-grid">
+          <div class="buybox-image">
+            <img src="Bildschirmfoto_2026-03-03_um_10.23.01.avif" alt="Matisse Habitus-Art-Set" />
+          </div>
+          <div>
+            <span class="eyebrow"><i class="ti ti-flower" aria-hidden="true"></i>Pfingst-Special</span>
+            <h3>Jetzt 30 % Rabatt sichern — und Keilrahmen (30 €) geschenkt bekommen.</h3>
+            <p class="buybox-desc">Nur für kurze Zeit. Suche dir schnell dein Lieblingsmotiv aus, bevor es vergriffen ist.</p>
+            <a class="btn btn-accent" href="/collections/malen-nach-zahlen">
+              Jetzt Motiv finden <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </a>
+            <p class="buybox-timer-row">
+              Aktion endet in: <span class="timer" id="countdown">02:02:10</span>
+            </p>
+          </div>
+        </div>
+        <hr class="buybox-divider"/>
+        <p class="stock-row">
+          <span class="live-dot"></span>
+          <strong style="font-weight: 600;">Auf Lager</strong>
+          <span style="color: var(--text-secondary);"> — in 3–5 Werktagen bei dir</span>
+        </p>
+      </div>
+
+      <p class="reassurance">
+        Kein Talent nötig <span>·</span> Alles in der Box <span>·</span> Made in Germany
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================
+       FOOTER — minimal (Funnel-only, keine Out-Links)
+       ========================================= -->
+  <footer class="footer-minimal">
+    <div class="container">
+      <div class="footer-brand">
+        <span class="footer-logo">
+          <img src="230913_habitus_logo_orange.png" alt="Habitus Art" />
+        </span>
+        <p>Premium Malen-nach-Zahlen aus München. Made in Germany, kuratiert mit echten Künstler*innen.</p>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Habitus GmbH · München</span>
+        <span>Impressum · Datenschutz · AGB</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================
+       SCRIPTS: Countdown-Timer
+       TODO: Echten Aktionsende-Timestamp setzen
+       ========================================= -->
+  <script>
+    // Pfingst-Special Countdown — Demo: 2h 2min ab Page-Load
+    // TODO: Mit echtem Aktions-Ende-Datum ersetzen (z.B. new Date('2026-05-25T23:59:59'))
+    (function () {
+      const target = new Date(Date.now() + (2 * 60 * 60 + 2 * 60 + 10) * 1000);
+      const el = document.getElementById('countdown');
+      if (!el) return;
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function tick() {
+        const diff = Math.max(0, target - Date.now());
+        const h = Math.floor(diff / 3.6e6);
+        const m = Math.floor((diff % 3.6e6) / 6e4);
+        const s = Math.floor((diff % 6e4) / 1000);
+        el.textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // Carousel arrow navigation
+    (function () {
+      document.querySelectorAll('.swipe-nav').forEach(function (nav) {
+        var targetId = nav.getAttribute('data-target');
+        var row = document.getElementById(targetId);
+        if (!row) return;
+        var prev = nav.querySelector('[data-dir="prev"]');
+        var next = nav.querySelector('[data-dir="next"]');
+
+        function getStep() {
+          var first = row.querySelector('*');
+          if (!first) return row.clientWidth;
+          var gap = parseFloat(getComputedStyle(row).columnGap || getComputedStyle(row).gap || '0') || 0;
+          return first.getBoundingClientRect().width + gap;
+        }
+        function update() {
+          var max = row.scrollWidth - row.clientWidth - 1;
+          prev.disabled = row.scrollLeft <= 1;
+          next.disabled = row.scrollLeft >= max;
+        }
+        prev.addEventListener('click', function () { row.scrollBy({ left: -getStep(), behavior: 'smooth' }); });
+        next.addEventListener('click', function () { row.scrollBy({ left: getStep(), behavior: 'smooth' }); });
+        row.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
+      });
+    })();
+  </script>
+
+</body>
+</html>
