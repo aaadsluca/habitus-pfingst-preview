@@ -721,8 +721,13 @@
       font-size: 0.8125rem;
       color: var(--text-tertiary);
       letter-spacing: 0.02em;
+      white-space: nowrap;
     }
-    .reassurance span { margin: 0 0.5rem; }
+    .reassurance span { margin: 0 0.35rem; }
+    @media (max-width: 480px) {
+      .reassurance { font-size: 0.75rem; }
+      .reassurance span { margin: 0 0.25rem; }
+    }
 
     /* ============ FOOTER — Minimal (Funnel-only) ============ */
     footer.footer-minimal {
@@ -781,7 +786,7 @@
        ANNOUNCEMENT BAR
        ========================================= -->
   <div class="announce">
-    Pfingst-Special: 30% Rabatt + Keilrahmen (30€) geschenkt. <a href="#offer">Jetzt sichern →</a>
+    Pfingst-Special: bis zu 20 % Rabatt + Keilrahmen für 25 € statt 30 €. <a href="#offer">Jetzt sichern →</a>
   </div>
 
   <!-- =========================================
@@ -1016,7 +1021,7 @@
             <li><i class="ti ti-check" aria-hidden="true"></i><span>Höchste Pigmentdichte — deckend beim ersten Pinselstrich</span></li>
             <li><i class="ti ti-check" aria-hidden="true"></i><span>Wasserbasierte Acrylfarben — fertig gemischt</span></li>
             <li><i class="ti ti-check" aria-hidden="true"></i><span>Hochwertige Leinwand — garantiert ohne Knicke</span></li>
-            <li><i class="ti ti-check" aria-hidden="true"></i><span>Eigene Künstler-Motive — keine generischen Vorlagen</span></li>
+            <li><i class="ti ti-check" aria-hidden="true"></i><span>Motive von Künstlern und Inhouse-Designern — keine generischen Vorlagen</span></li>
           </ul>
           <p class="mini" style="margin-top: 1.75rem;">Produktion in Berlin · Versand in 3–5 Werktagen</p>
         </div>
@@ -1033,9 +1038,9 @@
   <section id="kuenstler" class="artists-section">
     <div class="container">
       <span class="eyebrow"><i class="ti ti-palette" aria-hidden="true"></i>Echte Künstler*innen</span>
-      <h2>Keine KI-Motive.<br/>Keine Stockmotive.</h2>
-      <p class="lead" style="max-width: 640px; margin: 1rem auto 0;">
-        All unsere Motive stammen von Künstler*innen, mit denen wir persönlich zusammenarbeiten. Damit hältst du am Ende dein eigenes Künstlermotiv in der Hand.
+      <h2>Keine Standard-Motive.<br/>Keine Stock-Motive.</h2>
+      <p class="lead" style="max-width: 680px; margin: 1rem auto 0;">
+        All unsere Motive stammen von Künstler*innen und Inhouse-Designern, mit denen wir persönlich zusammenarbeiten. Damit hältst du am Ende dein eigenes Kunstwerk in der Hand.
       </p>
 
       <div class="artists-swipe">
@@ -1082,7 +1087,7 @@
         <div class="step">
           <div class="step-num">1</div>
           <h3>Such dein Motiv aus</h3>
-          <p>Über 40 Motive von echten Künstler:innen. Stillleben, Botanik, Berühmte Künstler, Abstrakt.</p>
+          <p>Über 250 Motive in verschiedenen Kategorien: Stillleben, Berühmte Künstler, Urlaubsorte, Abstrakt.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -1130,7 +1135,7 @@
           </div>
           <div>
             <span class="eyebrow"><i class="ti ti-flower" aria-hidden="true"></i>Pfingst-Special</span>
-            <h3>Jetzt 30 % Rabatt sichern — und Keilrahmen (30 €) geschenkt bekommen.</h3>
+            <h3>Jetzt bis zu 20 % Rabatt sichern — und Keilrahmen für 25 € statt 30 €.</h3>
             <p class="buybox-desc">Nur für kurze Zeit. Suche dir schnell dein Lieblingsmotiv aus, bevor es vergriffen ist.</p>
             <a class="btn btn-accent" href="/collections/malen-nach-zahlen">
               Jetzt Motiv finden <i class="ti ti-arrow-right" aria-hidden="true"></i>
@@ -1149,7 +1154,7 @@
       </div>
 
       <p class="reassurance">
-        Kein Talent nötig <span>·</span> Alles in der Box <span>·</span> Made in Germany
+        Anfängerfreundlich <span>·</span> Alles in der Box <span>·</span> Made in Germany
       </p>
     </div>
   </section>
